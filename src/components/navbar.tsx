@@ -53,11 +53,11 @@ export function Navbar() {
 
   const navigation = [
     { name: "Home", href: "/", icon: Home },
-    { name: "Browse", href: "/search", icon: Tv },
+    { name: "Browse Anime", href: "/search", icon: Tv },
+    { name: "Browse Manga", href: "/manga/browse", icon: Grid },
     { name: "Rankings", href: "/rankings", icon: Trophy },
     { name: "Seasonal", href: "/seasonal", icon: Calendar },
     { name: "Discover", href: "/discover", icon: Sparkles },
-    { name: "Genres", href: "/genres", icon: Grid },
     { name: "My List", href: "/my-list", icon: Menu },
   ]
 
