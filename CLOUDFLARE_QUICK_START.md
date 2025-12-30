@@ -78,35 +78,39 @@ This will upload everything from:
 - `public/manga/` → R2 bucket
 - `public/anime/` → R2 bucket
 
-### 4️⃣ Deploy to Cloudflare Pages (5 minutes)
+### 4️⃣ Deploy to Cloudflare Pages via GitHub (5 minutes)
 
-**Option A: Via GitHub (Recommended)**
-
-1. Push your code to GitHub:
+**Push your code to GitHub:**
 ```bash
 git add .
 git commit -m "feat: ready for Cloudflare deployment"
 git push origin main
 ```
 
-2. Go to [Cloudflare Dashboard](https://dash.cloudflare.com) → Pages
-3. Click **"Create a project"** → **"Connect to Git"**
-4. Select your repository
-5. Configure build:
-   - **Framework**: Next.js (Static HTML Export)
+**Connect GitHub to Cloudflare:**
+
+1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com) → Pages
+2. Click **"Create a project"** → **"Connect to Git"**
+3. **Authorize Cloudflare** to access your GitHub account
+4. Select your repository (works with private repos!)
+5. Configure build settings:
+   - **Production branch**: `main`
+   - **Framework preset**: Next.js
    - **Build command**: `npm run build`
-   - **Build output directory**: `out`
+   - **Build output directory**: `.next`
+   - **Node version**: `18` or higher
 6. Add environment variables:
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
    - `NEXT_PUBLIC_R2_PUBLIC_URL`
    - `NEXT_PUBLIC_SITE_URL` (use `https://your-project.pages.dev`)
+   - `DATABASE_URL`
 7. Click **"Save and Deploy"**
 
-**Option B: Direct Deploy**
+✅ **Done!** Now every push to `main` auto-deploys your site.
 
+**Manual Deploy (Alternative):**
 ```bash
-# One command deploy
 npm run deploy:cloudflare
 ```
 

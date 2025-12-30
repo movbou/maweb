@@ -5,13 +5,15 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  // Disable Next.js hot reload, handled by nodemon
+  // Disable Next.js hot reload in dev, handled by nodemon
   reactStrictMode: false,
   eslint: {
     // Ignore ESLint errors during build
     ignoreDuringBuilds: true,
   },
   images: {
+    // Cloudflare Pages requires unoptimized images
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -33,9 +35,16 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'lh3.googleusercontent.com',
       },
+      {
+        protocol: 'https',
+        hostname: '**.r2.dev',
+      },
+      {
+        protocol: 'https',
+        hostname: 'pub-*.r2.dev',
+      },
     ],
-    unoptimized: false,
-  }
+  },
 };
 
 export default nextConfig;

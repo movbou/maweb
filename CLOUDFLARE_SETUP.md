@@ -2,12 +2,13 @@
 
 ## 📋 What I've Created For You
 
-I've set up everything you need to deploy your anime/manga website to Cloudflare for **completely free**. Here's what's included:
+I've set up everything you need to deploy your anime/manga website to Cloudflare for **completely free** using **GitHub auto-deploy**. Here's what's included:
 
 ### 1. **Documentation Files**
 
 | File | Purpose |
-|------|---------|
+|------|---------|  
+| `GITHUB_DEPLOY.md` | **GitHub auto-deploy guide** - Push to deploy! |
 | `CLOUDFLARE_QUICK_START.md` | **START HERE** - 30-minute deployment guide |
 | `CLOUDFLARE_DEPLOYMENT.md` | Complete technical documentation |
 | `CLOUDFLARE_CHECKLIST.md` | Step-by-step checklist to ensure nothing is missed |
@@ -69,21 +70,23 @@ npm run optimize:images
 npm run upload:r2
 ```
 
-### Step 3: Deploy (5 min)
+### Step 3: Deploy via GitHub! (5 min)
 
-**Option A: GitHub Auto-Deploy** (Recommended)
 ```bash
+# Push to GitHub
 git add .
 git commit -m "feat: ready for production"
 git push origin main
-
-# Then: Cloudflare Dashboard → Pages → Connect Git → Deploy
 ```
 
-**Option B: Direct Deploy**
-```bash
-npm run deploy:cloudflare
-```
+**Then connect in Cloudflare Dashboard:**
+1. Pages → Create Project → Connect to Git
+2. Authorize GitHub (works with private repos)
+3. Select your repository
+4. Configure build (see CLOUDFLARE_QUICK_START.md)
+5. Deploy!
+
+✅ **Auto-deploy enabled:** Every push to `main` = automatic deployment
 
 **Done!** Your site is live at `https://your-project.pages.dev` 🎉
 

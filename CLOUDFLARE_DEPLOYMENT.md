@@ -135,22 +135,32 @@ uploadDirectory("./public/manga", "manga-storage", "manga");
 
 ### 8. Deploy to Cloudflare Pages
 
-#### Option A: Via GitHub (Recommended)
+#### Via GitHub (Recommended - Auto-Deploy)
 1. Push your code to GitHub
+   ```bash
+   git add .
+   git commit -m "feat: ready for deployment"
+   git push origin main
+   ```
+
 2. Go to Cloudflare Dashboard → Pages
 3. Click "Create a project" → "Connect to Git"
-4. Select your repository
-5. Configure build settings:
+4. **Authorize GitHub** (works with private repos!)
+5. Select your repository
+6. Configure build settings:
    - **Framework preset**: Next.js
    - **Build command**: `npm run build`
-   - **Build output directory**: `out` (for static export) or `.next` (for Pages Functions)
+   - **Build output directory**: `.next`
+   - **Root directory**: `/` (leave empty)
    - **Environment variables**: Add all from `.env.production`
-6. Click "Save and Deploy"
+7. Click "Save and Deploy"
 
-#### Option B: Direct Upload
+✅ **Auto-deploy enabled:** Every push to main automatically deploys!
+
+#### Direct Upload (Manual - Alternative)
 ```bash
 npm run build
-npx wrangler pages deploy out --project-name=maweb
+npx wrangler pages deploy .next --project-name=maweb
 ```
 
 ### 9. Handle Socket.IO (WebSocket Alternative)
