@@ -1,0 +1,20 @@
+name = "maweb"
+compatibility_date = "2024-12-30"
+pages_build_output_dir = "out"
+
+# R2 Storage for media files
+[[r2_buckets]]
+binding = "MANGA_BUCKET"
+bucket_name = "manga-storage"
+preview_bucket_name = "manga-storage-preview"
+
+[[r2_buckets]]
+binding = "ANIME_BUCKET"
+bucket_name = "anime-storage"
+preview_bucket_name = "anime-storage-preview"
+
+# Environment variables (set these in Cloudflare Dashboard)
+# [vars]
+# NEXT_PUBLIC_SUPABASE_URL = ""
+# NEXT_PUBLIC_SUPABASE_ANON_KEY = ""
+# NEXT_PUBLIC_R2_PUBLIC_URL = ""
